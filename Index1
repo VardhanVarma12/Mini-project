@@ -1,0 +1,104 @@
+#1st web page
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        /* Your existing CSS styles */
+        body {
+            background-image: url("{{ url_for('static', filename='imagine.jpg') }}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column; /* Ensure content is stacked vertically */
+            justify-content: center;
+            align-items: center;
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            position: relative; /* Set position to relative */
+        }
+        .innerdiv {
+            position: absolute; /* Set position to absolute */
+            top: 50%; /* Set top to 50% to center vertically */
+            transform: translateY(-50%); /* Adjust vertical position */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .innerdiv h1 {
+            color: white;
+            font-weight: 700;
+            text-wrap: wrap;
+            text-align: center;
+            animation: slideFromBottom 1s ease; /* Apply animation */
+        }
+        
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: black;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px; /* Add margin for spacing */
+        }
+        .button:hover {
+            background-color:black; /* Darker shade on hover */
+        }
+
+        /* Navbar styles */
+        nav {
+            background-color: black; /* Semi-transparent black */
+            width: 100%;
+            padding: 20px 0; /* Increase padding to make navbar thicker */
+            position: fixed; /* Fixed position so it stays at the top */
+            top: 0; /* Align to the top */
+            z-index: 1000; /* Ensure it's above other content */
+            display: flex;
+            justify-content: center; /* Center content horizontally */
+            align-items: center;
+            padding: 10px 20px; /* Adjust padding */
+        }
+        nav h1 {
+            color: white;
+            margin: 0;
+        }
+
+        /* Style for placing upload button to the right of navbar */
+        .upload-button {
+            position: absolute;
+            top: 70%; /* Adjust top position */
+            left: 50%; /* Adjust left position */
+            transform: translate(-50%, -50%); /* Center the button */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h1>SKIN CANCER DETECTION</h1>
+    </nav>
+    <div class="innerdiv">
+        <!-- <div class="container">
+            <h1>
+                SKIN CANCER DETECTION
+            </h1>
+        </div> -->
+    </div>
+    <!-- Upload button placed on top of the background image -->
+    <button class="button upload-button" onclick="location.href='/upload'">CLICK TO PROCEED</button>
+</body>
+</html>
