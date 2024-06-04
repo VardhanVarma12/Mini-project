@@ -1,0 +1,56 @@
+#2nd index file
+
+
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin Cancer Detection</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom right, #8a2be2, #87cefa); 
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #upload-form {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        #preview {
+            margin-top: 20px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <form id="upload-form" action="" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" id="image-input" accept="image/*" onchange="previewImage(event)">
+        <div id="preview"></div>
+        <input type="submit" value="Predict">
+    </form>
+
+    <script>
+        function previewImage(event) {
+            var preview = document.getElementById('preview');
+            var file = event.target.files[0];
+            var reader = new FileReader();
+
+            reader.onload = function(event) {
+                var img = document.createElement('img');
+                img.src = event.target.result;
+                img.style.maxWidth = '300px'; // Limit width for preview
+                preview.innerHTML = ''; // Clear previous preview
+                preview.appendChild(img);
+                preview.style.display = 'block'; // Show preview
+            };
+
+            reader.readAsDataURL(file);
+        }
+    </script>
+</body>
+</html>
